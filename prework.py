@@ -37,30 +37,22 @@ def is_leap_year(year):
     
     if leap == False:
         return False
-print(is_leap_year(2000))
+print(is_leap_year(2020))
 
 ####Question 5
 # Write a function to check to see if all numbers in list are consecutive numbers. 
 # For example, [2,3,4,5,6,7] are consecutive numbers, but [1,2,4,5] are not consecutive numbers. 
 # The return should be boolean Type.
-another_num_list = [2,3,4,5,6]
+test_list = [2, 3, 4, 5, 6]
 def is_consecutive(a_list):
-    is_it_consecutive = False
-    current_num = 0
-    previous_num = a_list[0]
+    is_consec = False
+    ind_slice = 0
     for i in a_list:
-        current_num += i
-        if current_num == a_list[0]:
-            previous_num = i
-            current_num = 0
-            continue
-        if current_num == previous_num + 1:
-            previous_num = i
-            current_num = 0
-            is_it_consecutive = True
-            continue
+        current_num = i
+        if current_num - 1 == a_list[ind_slice]:
+            is_consec = True 
+            ind_slice += 1   
         else:
-            is_it_consecutive = False
-            break
-    return is_it_consecutive
-print(is_consecutive(another_num_list))
+            is_consec = False
+    print(is_consec)
+is_consecutive(test_list)
